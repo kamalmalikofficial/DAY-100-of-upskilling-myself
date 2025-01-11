@@ -1,50 +1,33 @@
 #include<iostream>
 using namespace std;
- 
- struct node{
+class node{
+    public:
+
     int data;
-    node*next;
- };
-void travelinlinkedlist(node*node){
-    while(node->next!=NULL){
-        cout<<node->data<<"->";
-        node = node->next;
-    }  
-}
-node* fourth = nullptr;
+    node* next;
 
-void insertinlast( int data1){
-     struct node* templast = new node();
-     templast -> data = data1;
-     fourth->next = templast;
-     templast->next= NULL;
-
-
+};
+void printlist(node* h){
+    while( h!=NULL ){
+        cout<< h->data<<"-";
+        h=h->next;
+    }
 }
 
 int main(){
-    node*head = new node();
-    node*first = new node();
-    node*second = new node();
-    node*third = new node();
-    fourth = new node();
+    node* head = new node();
+    node* second = new node();
+    node* third = new node();
 
-    head->data = 1;
-    head->next = first;
-    first->data = 2;
-    first->next = second;
-    second->data = 3;
+    head-> data = 1;
+    head->next = second;
+
+    second->data = 2;
     second->next = third;
-    third->data = 4;
-    third->next = fourth;
-    fourth->data = 5;
-    fourth->next = NULL;
-    travelinlinkedlist(head);
-    cout<<endl;
-
-    // now insert  in the begining
-    insertinlast(5);
-    travelinlinkedlist(head);
     
-    return 0;
+    third->data = 3;
+    third->next = NULL;
+
+    printlist(head);
+
 }
